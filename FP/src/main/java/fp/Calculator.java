@@ -39,15 +39,43 @@ public class Calculator {
 	 * Escribir todos los números del number al 0 de step en step.
 	 */
 	public static int[] stepThisNumber(int number, int step) {
-		throw  new NotImplementedException();
+		List<Integer> lista = new ArrayList<Integer>();
+		int resultado=number-step;
+		while(resultado>0){
+			lista.add(resultado);
+			resultado=resultado-step;
 		}
+		
+		int enteros[]=new int[lista.size()];
+		for(int i=0;i<lista.size();i++){
+			enteros[i]=lista.get(i);
+		}
+		
+		return enteros;
+	}
 
 	/*
 	 * Módulo al que se le pasa un número entero del 0 al 20 y devuelve los
 	 * divisores que tiene.
 	 */
 	public static int[] divisors(int n) {
-		throw  new NotImplementedException();
+		List<Integer> lista = new ArrayList<Integer>();
+		int divisor=n;
+		if(n>0){
+			while(divisor>0){
+				if(n%divisor==0){
+					lista.add(divisor);
+				}divisor--;
+			}
+		}else if(n<=0){
+			return null;
+		}
+		
+		int enteros[]=new int[lista.size()];
+		for(int i=0;i<lista.size();i++){
+			enteros[i]=lista.get(i);
+		}
+		return enteros;
 	}
 
 	/*
