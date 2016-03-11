@@ -90,7 +90,32 @@ public class Calculator {
 	 * mostrar: cincuenta y seis
 	 */
 	public static String speakToMe(int n) {
-		throw  new NotImplementedException();
+		String number = numberToLetter(n);
+		return number.substring(0, 1).toUpperCase() + number.substring(1);
+		//throw  new NotImplementedException();
+	}
+	
+	public static String numberToLetter(int n) {
+
+		String[] unicos = {"cero", "uno", "dos", "tres", "cuatro",
+				"cinco", "seis", "siete", "ocho", "nueve", "diez", "once",
+				"doce",	"trece", "catorce", "quince", "dieciséis"};
+		String[] decenas = {"dieci", "veinti", "veinte", "treinta", "cuarenta",
+				"cincuenta", "sesenta", "setenta", "ochenta", "noventa"};
+
+		if (n < 17)
+			return unicos[n];
+
+		if ((n % 10) == 0)
+			return decenas[(n / 10)];
+
+		if (n < 30)
+			return decenas[(n / 10) - 1] + unicos[n % 10];
+
+		if (n > 99)
+			return "Más de dos dígitos";
+
+		return decenas[(n / 10)] + " y " + unicos[n % 10];
 	}
 
 	/*
